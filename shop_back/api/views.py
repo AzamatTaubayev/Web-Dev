@@ -29,7 +29,9 @@ def get_category(request, category_id):
 
 
 def get_products_by_category(request, category_id):
-    category = Category.objects.get(id=category_id)
-    products = category.product_set.all()
-    data = {'products': list(products.values())}
-    return JsonResponse(data)
+    category = Category.objects.get(pk=category_id)
+    products = category.products.all()
+
+    data = [{'name': product.name} for product in products]
+
+    return JsonResponse(data, safe=False)

@@ -7,8 +7,10 @@ and can be done without any loops. See also: Introduction to MakeBricks
 make_bricks(3, 1, 9) → False
 make_bricks(3, 2, 10) → True
 '''
+
+
 def make_bricks(small, big, goal):
-  r = goal
-  r -= 5 * min(big, goal / 5)
-  return r - small <= 0
+    r = goal
+    r -= 5 * min(big, goal / 5)
+    return r - small <= 0
 
